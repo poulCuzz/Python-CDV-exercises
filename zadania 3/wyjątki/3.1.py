@@ -1,8 +1,8 @@
 print("What operation you choose?")
-print("- write '+' to choose addition")
-print("- write '-' to choose subtraction")
-print("- write '*' to choose multiplication")
-print("- write '/' to choose division")
+print("- Enter '+' for addition")
+print("- Enter '-' for subtraction")
+print("- Enter '*' for multiplication")
+print("- Enter '/' for division")
 operations = {"+", "-", "*", "/"}
 while True:
     operation = input("->")
@@ -26,9 +26,14 @@ while True:
         elif operation == "*":
             print(numbers[0] * numbers[1])
         elif operation == "/":
-            print(numbers[0] / numbers[1])
+            if numbers[1] != 0:
+                print(numbers[0] / numbers[1])
+            else:
+                print("Cannot divide by zero. Please try again")
+                numbers = []
+                continue
     except ValueError:
-        print("wrong type of value, try again...")
+        print("Invalid input. Please enter numerical values.")
         numbers = []
     else:
         break
